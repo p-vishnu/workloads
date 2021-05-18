@@ -1,0 +1,1 @@
+{"uuid":"33bd3d1c-7b00-4556-888d-789a353f26aa","name":"task.Jira.setUp","children":["10f49213-1c20-4203-998a-549d08f88793"],"description":"","befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1621339822418,"stop":1621339825893}],"afters":[],"links":[],"start":1621339822416,"stop":1621339825894}
