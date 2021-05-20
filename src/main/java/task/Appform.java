@@ -52,32 +52,25 @@ public class Appform {
 		action.moveToElement(subjectText).sendKeys("maths").build().perform();
 	    //WebElement subjectfield = driver.findElement(By.xpath("//div[@class='subjects-auto-complete__value-container subjects-auto-complete__value-container--is-multi css-1hwfws3']"));
 		
-		
-		WebElement hobbies_sports= driver.findElement(By.xpath("//input[@type='checkbox' and @id='hobbies-checkbox-1'and @text()='Sports']")); 
-		action.moveToElement(hobbies_sports).click().build().perform();
+		//WebElement hobbies_sports= driver.findElement(By.xpath("//input[@type='checkbox' and @id='hobbies-checkbox-1'and @text()='Sports']")); 
+		//action.moveToElement(hobbies_sports).click().build().perform();
 		 
 		 
+	/*
+	 * WebElement fileupload = driver.findElement(By.id("uploadPicture"));
+	 * fileupload.sendKeys("‪C:\\Users\\ACER\\Desktop\\fileupoad.txt");
+	 * action.moveToElement(fileupload).doubleClick();
+	 * driver.findElement(By.id("submit")).click();
+	 */
 		
 		
+		driver.findElement(By.id("currentAddress")).sendKeys("12345/6");
+		driver.findElement(By.xpath("//div[text()='Select State']")).click();
+		driver.findElement(By.xpath("//div[text()='Haryana']")).click();
+		driver.findElement(By.xpath("//div[text()='Karnal']")).click();
+		driver.findElement(By.id("submit")).click();
 		
-
 		
-		
-		//driver.findElement(By.id("//div[@id='subjectsContainer']"));
-		
-		/*
-		Actions action = new Actions(driver);
-		WebElement stateoptions = driver.findElement(By.xpath("//div[text()='Select State']"));
-		action.moveToElement(stateoptions);*/
-		
-		/*List<WebEleemnt> 
-		int optionstext = stateoptions.size();
-		System.out.println(optionstext);
-		for(int i=0;i<stateoptions.size();i++) {
-			if(stateoptions.get(i).getText().equals("NCR")) {
-				stateoptions.get(i).click();
-				break;
-			}*/
 		
 	}
 
