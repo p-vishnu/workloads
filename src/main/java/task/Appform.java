@@ -62,9 +62,9 @@ public class Appform {
 	 */
 		
 		
-		driver.findElement(By.id("currentAddress")).sendKeys("12345/6");
-		driver.findElement(By.xpath("//div[text()='Select State']")).click();
-		driver.findElement(By.xpath("//div[text()='Haryana']")).click();
+		driver.findElement(By.id(prop.getProperty("appform_address"))).sendKeys(prop.getProperty("appform_address_value"));
+		driver.findElement(By.xpath(prop.getProperty("appform_state&capital"))).click();
+		driver.findElement(By.xpath(prop.getProperty("appform_state"))).click();
 		driver.findElement(By.xpath("//div[text()='Karnal']")).click();
 		driver.findElement(By.id("submit")).click();
 		
