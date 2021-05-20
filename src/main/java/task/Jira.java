@@ -8,7 +8,9 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -51,19 +53,14 @@ public class Jira {
 		driver.findElement(By.xpath(prop.getProperty("jira_loginbutton"))).click();
 		driver.findElement(By.xpath(prop.getProperty("jira_sofwareIcon"))).click();
 		driver.findElement(By.xpath(prop.getProperty("jira_createbuttton"))).click();
-		driver.findElement(By.xpath(prop.getProperty("jira_issueTypeDropdown"))).click();
+		//driver.findElement(By.xpath(prop.getProperty("jira_issueTypeDropdown"))).click();
 		
+		
+		Actions action = new Actions(driver);
+		WebElement issuetype = driver.findElement(By.xpath(prop.getProperty("jira_issueTypeDropdown")));
+		action.moveToElement(issuetype);
 		
 		//driver.findElement(By.xpath("(//div/div/div/div/div/ul/li[contains(@id,'bug')])[1]")).click();
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 		
 		

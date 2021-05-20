@@ -3,12 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="task.Jira">
+      <class name="task.Appform">
         <methods>
-          <include name="bugcapture"/>
           <include name="setUp"/>
+          <include name="qaForm"/>
         </methods>
-      </class> <!-- task.Jira -->
+      </class> <!-- task.Appform -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
