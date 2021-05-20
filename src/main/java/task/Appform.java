@@ -28,8 +28,6 @@ public class Appform {
 		driver.findElement(By.id(prop.getProperty("appform_lastname"))).sendKeys(prop.getProperty("appform_lastname_value"));
 		driver.findElement(By.id(prop.getProperty("appform_email"))).sendKeys(prop.getProperty("appform_emailvalue"));
 		
-		driver.findElement(By.className("custom-control-label"));
-		//driver.findElement(By.xpath("//input[@name = 'gender' and @id ='gender-radio-1']")).click();
 		Actions action = new Actions(driver);
 		WebElement male_button = driver.findElement(By.xpath("//input[@name = 'gender' and @id ='gender-radio-1']"));
 		action.moveToElement(male_button).click().build().perform();
