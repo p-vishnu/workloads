@@ -77,7 +77,7 @@ public class Appform {
 		
 		WebElement capital = driver.findElement(By.xpath("//div[text()='Panipat']"));
 		WebDriverWait wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(capital));
+		wait.until(ExpectedConditions.elementToBeClickable(capital)).
 		
 		driver.findElement(By.id("submit")).click();
 		
