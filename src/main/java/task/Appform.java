@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -68,11 +70,19 @@ public class Appform {
 		driver.findElement(By.xpath(prop.getProperty("appform_state&capital"))).click();
 		driver.findElement(By.xpath(prop.getProperty("appform_state"))).click();
 		
-		WebElement selectcapital = driver.findElement(By.xpath("//div[text()='Panipat']")); //not clicking
-		action.moveToElement(selectcapital).click().build().perform();
+		
+		//driver.findElement(By.xpath("//div[text()='Panipat' and @class =' css-1uccc91-singleValue']")).click();
+		//WebElement selectcapital = driver.findElement(By.xpath("//div[text()='Panipat']")); //not clicking
+		//action.moveToElement(selectcapital).click().build().perform();
+		
+		WebElement capital = driver.findElement(By.xpath("//div[text()='Panipat']"));
+		WebDriverWait wait = new WebDriverWait(driver, 5);
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(capital));
+		
 		driver.findElement(By.id("submit")).click();
 		
 		////div[text()= 'Thanks for submitting the form']
+		
 		
 		
 		

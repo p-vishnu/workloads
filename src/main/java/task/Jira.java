@@ -19,32 +19,20 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class Jira {
 	
 	WebDriver driver;
-	String text;
+	//String text;
 	Properties prop;
 	
 	
 	@BeforeMethod
 	public void setUp() {
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
-		//driver.get("https://id.atlassian.com/login");
+		prop = Util.propertyFile(prop);
+		driver = Util.launchBrowser(driver, prop.getProperty("browser"));
 	}
 	
 	@Test
 	public void bugcapture() {
 		
-		try {
-			FileInputStream f = new FileInputStream("C:\\Users\\ACER\\eclipse-workspace\\mvnTest\\src\\main\\java\\config\\config.properties");
-			prop = new Properties();
-			prop.load(f);
-		} catch (FileNotFoundException e1) {
-			e1.printStackTrace();
-			System.out.println(e1);
-		} catch (IOException e2) {
-			e2.printStackTrace();
-			System.out.println(e2);
-		}
+		prop = Util.propertyFile(prop);
 		
 		driver.get(prop.getProperty("jira_URL"));
 		driver.findElement(By.id(prop.getProperty("jira_email"))).sendKeys(prop.getProperty("jira_emailvalue"));
@@ -53,14 +41,11 @@ public class Jira {
 		driver.findElement(By.xpath(prop.getProperty("jira_loginbutton"))).click();
 		driver.findElement(By.xpath(prop.getProperty("jira_sofwareIcon"))).click();
 		driver.findElement(By.xpath(prop.getProperty("jira_createbuttton"))).click();
-		//driver.findElement(By.xpath(prop.getProperty("jira_issueTypeDropdown"))).click();
+		driver.findElement(By.xpath(prop.getProperty("jira_issueTypeDropdown"))).click();
 		
-		
-		Actions action = new Actions(driver);
-		WebElement issuetype = driver.findElement(By.xpath(prop.getProperty("jira_issueTypeDropdown")));
-		action.moveToElement(issuetype);
-		
-		//driver.findElement(By.xpath("(//div/div/div/div/div/ul/li[contains(@id,'bug')])[1]")).click();
+		Actions action = new Actions(driver); 
+		WebElement selectBug= driver.findElement(By.xpath("(//input[@aria-autocomplete='list'])[2]"));
+		action.moveToElement(selectBug).click().build().perform();
 		
 		
 		
