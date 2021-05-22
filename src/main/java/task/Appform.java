@@ -1,8 +1,5 @@
 package task;
 
-import static org.testng.Assert.assertEquals;
-
-import java.util.List;
 import java.util.Properties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,8 +12,8 @@ import org.testng.annotations.Test;
 
 public class Appform {
 	Properties prop;
-	
 	WebDriver driver;
+	
 	@BeforeMethod
 	public void setUp() {
 		prop = Util.propertyFile(prop);
@@ -50,12 +47,13 @@ public class Appform {
 		driver.findElement(By.xpath(prop.getProperty("appform_Date"))).click();
 		
 		
-		WebElement subjectText = driver.findElement(By.className("css-1g6gooi"));
-		action.moveToElement(subjectText).sendKeys("maths").build().perform();
+		//WebElement subjectText = driver.findElement(By.className("css-1g6gooi"));
+		//action.moveToElement(subjectText).sendKeys("maths").build().perform();
 	    //WebElement subjectfield = driver.findElement(By.xpath("//div[@class='subjects-auto-complete__value-container subjects-auto-complete__value-container--is-multi css-1hwfws3']"));
 		
-		//WebElement hobbies_sports= driver.findElement(By.xpath("//input[@type='checkbox' and @id='hobbies-checkbox-1'and @text()='Sports']")); 
-		//action.moveToElement(hobbies_sports).click().build().perform();
+		WebElement hobbies_sports= driver.findElement(By.xpath("//input[@type='checkbox' and @id='hobbies-checkbox-1']")); 
+		action.moveToElement(hobbies_sports).click().build().perform();
+		////input[@type='checkbox' and @id='hobbies-checkbox-1']
 		 
 		 
 	/*
@@ -77,7 +75,7 @@ public class Appform {
 		
 		WebElement capital = driver.findElement(By.xpath("//div[text()='Panipat']"));
 		WebDriverWait wait = new WebDriverWait(driver, 5);
-		wait.until(ExpectedConditions.elementToBeClickable(capital)).
+		wait.until(ExpectedConditions.elementToBeClickable(capital));
 		
 		driver.findElement(By.id("submit")).click();
 		
